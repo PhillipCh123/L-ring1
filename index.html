@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Min side</title>
+  <link rel="stylesheet" href="output.css" />
+</head>
+<body class="bg-slate-50">
+
+  <!-- NAVBAR — id bruges til at tilføje/fjerne shadow ved scroll -->
+  <nav id="navbar" class="fixed top-0 left-0 w-full bg-white shadow p-4 z-50">
+    <div class="max-w-2xl mx-auto flex justify-between items-center">
+      <span class="font-bold text-slate-900">Min side</span>
+      <!-- Hamburger-knap — id bruges til at åbne/lukke mobil-menu -->
+      <button id="menu-btn" class="text-slate-600 font-medium text-sm">☰ Menu</button>
+    </div>
+    <!-- Mobil-menu — id bruges til at toggle hidden -->
+    <div id="mobile-menu" class="hidden max-w-2xl mx-auto mt-3 flex flex-col gap-2 text-sm text-slate-600">
+      <a href="#velkommen">Velkommen</a>
+      <a href="#om-mig">Om mig</a>
+      <a href="#flexbox">Flexbox</a>
+      <a href="#grid">Grid</a>
+    </div>
+  </nav>
+
+  <div class="pt-20 max-w-2xl mx-auto px-4 space-y-10 pb-20">
+
+    <!-- VELKOMMEN-BOKS — id bruges til smooth scroll -->
+    <div id="velkommen" class="border border-gray-200 rounded-xl p-6 bg-white">
+      <h1 class="text-3xl font-bold mb-4">Velkommen til min side</h1>
+      <p class="text-slate-600 mb-4">Dette er en simpel HTML-side med Tailwind CSS.</p>
+      <!-- id bruges til at lytte efter klik i JS -->
+      <button id="velkommen-btn" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition">Klik mig</button>
+      <!-- id bruges til at vise/skjule besked fra JS -->
+      <p id="velkommen-besked" class="hidden mt-3 text-green-600 font-medium">Du klikkede på knappen! 🎉</p>
+    </div>
+
+    <!-- OM MIG-BOKS — id bruges til smooth scroll -->
+    <div id="om-mig" class="bg-white border border-blue-100 rounded-2xl p-8 shadow-md">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="bg-blue-100 text-blue-600 w-14 h-14 rounded-full flex items-center justify-center text-2xl">👨‍💻</div>
+        <div>
+          <h2 class="text-xl font-bold text-slate-900">Om mig</h2>
+          <p class="text-blue-500 text-xs font-medium">Webudvikler</p>
+        </div>
+      </div>
+      <p class="text-slate-600 text-sm leading-relaxed mb-4">Jeg er en webudvikler, der elsker at arbejde med HTML og Tailwind CSS.</p>
+      <p class="text-slate-400 text-xs mb-6">Kontakt mig for mere information.</p>
+      <!-- id bruges til at åbne modal fra JS -->
+      <button id="om-mig-btn" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 rounded-xl transition text-sm">Læs mere</button>
+    </div>
+
+    <!-- ===================== FLEXBOX DEMO ===================== -->
+    <div id="flexbox">
+      <p class="text-xs font-bold uppercase tracking-widest text-blue-500 mb-1">Flexbox</p>
+      <h2 class="text-2xl font-bold text-slate-900">Én retning — vandret eller lodret</h2>
+      <p class="text-slate-500 text-sm mt-1 mb-6">Flex placerer elementer på en linje. Du styrer afstand og justering langs linjen.</p>
+
+      <p class="text-xs text-slate-400 font-mono mb-2">justify-between → skubber til hver side</p>
+      <div class="flex justify-between bg-blue-50 border border-blue-200 rounded-xl p-4 mb-4">
+        <div class="bg-blue-500 text-white px-4 py-2 rounded-lg text-sm font-semibold">Logo</div>
+        <div class="bg-blue-500 text-white px-4 py-2 rounded-lg text-sm font-semibold">Menu</div>
+        <div class="bg-blue-500 text-white px-4 py-2 rounded-lg text-sm font-semibold">Log ind</div>
+      </div>
+
+      <p class="text-xs text-slate-400 font-mono mb-2">justify-center → alt samlet i midten</p>
+      <div class="flex justify-center gap-4 bg-blue-50 border border-blue-200 rounded-xl p-4 mb-4">
+        <div class="bg-blue-500 text-white px-4 py-2 rounded-lg text-sm font-semibold">Logo</div>
+        <div class="bg-blue-500 text-white px-4 py-2 rounded-lg text-sm font-semibold">Menu</div>
+        <div class="bg-blue-500 text-white px-4 py-2 rounded-lg text-sm font-semibold">Log ind</div>
+      </div>
+
+      <p class="text-xs text-slate-400 font-mono mb-2">flex-col → lodret i stedet for vandret</p>
+      <div class="flex flex-col gap-3 bg-blue-50 border border-blue-200 rounded-xl p-4">
+        <div class="bg-blue-500 text-white px-4 py-2 rounded-lg text-sm font-semibold text-center">Øverst</div>
+        <div class="bg-blue-300 text-white px-4 py-2 rounded-lg text-sm font-semibold text-center">Midt</div>
+        <div class="bg-blue-100 text-blue-700 px-4 py-2 rounded-lg text-sm font-semibold text-center">Nederst</div>
+      </div>
+    </div>
+
+    <!-- ===================== GRID DEMO ===================== -->
+    <div id="grid">
+      <p class="text-xs font-bold uppercase tracking-widest text-purple-500 mb-1">Grid</p>
+      <h2 class="text-2xl font-bold text-slate-900">To retninger — rækker OG kolonner</h2>
+      <p class="text-slate-500 text-sm mt-1 mb-6">Grid definerer et skelet. Elementer falder automatisk på plads i cellerne.</p>
+
+      <p class="text-xs text-slate-400 font-mono mb-2">grid-cols-3 → 3 lige store kolonner</p>
+      <div class="grid grid-cols-3 gap-4 bg-purple-50 border border-purple-200 rounded-xl p-4 mb-4">
+        <div class="bg-purple-500 text-white p-4 rounded-lg text-sm font-semibold text-center">Kort 1</div>
+        <div class="bg-purple-500 text-white p-4 rounded-lg text-sm font-semibold text-center">Kort 2</div>
+        <div class="bg-purple-500 text-white p-4 rounded-lg text-sm font-semibold text-center">Kort 3</div>
+        <div class="bg-purple-300 text-white p-4 rounded-lg text-sm font-semibold text-center">Kort 4</div>
+        <div class="bg-purple-300 text-white p-4 rounded-lg text-sm font-semibold text-center">Kort 5</div>
+        <div class="bg-purple-300 text-white p-4 rounded-lg text-sm font-semibold text-center">Kort 6</div>
+      </div>
+
+      <p class="text-xs text-slate-400 font-mono mb-2">grid-cols-4 → skift til 4 kolonner, samme elementer</p>
+      <div class="grid grid-cols-4 gap-4 bg-purple-50 border border-purple-200 rounded-xl p-4">
+        <div class="bg-purple-500 text-white p-4 rounded-lg text-sm font-semibold text-center">Kort 1</div>
+        <div class="bg-purple-500 text-white p-4 rounded-lg text-sm font-semibold text-center">Kort 2</div>
+        <div class="bg-purple-500 text-white p-4 rounded-lg text-sm font-semibold text-center">Kort 3</div>
+        <div class="bg-purple-300 text-white p-4 rounded-lg text-sm font-semibold text-center">Kort 4</div>
+        <div class="bg-purple-300 text-white p-4 rounded-lg text-sm font-semibold text-center">Kort 5</div>
+        <div class="bg-purple-300 text-white p-4 rounded-lg text-sm font-semibold text-center">Kort 6</div>
+      </div>
+    </div>
+
+    <!-- ===================== KOMBINATION ===================== -->
+    <div id="kombination">
+      <p class="text-xs font-bold uppercase tracking-widest text-green-500 mb-1">Grid + Flex kombineret</p>
+      <h2 class="text-2xl font-bold text-slate-900">Sådan bruges de i praksis</h2>
+      <p class="text-slate-500 text-sm mt-1 mb-6">Grid styrer layoutet — Flex styrer indholdet inde i hvert kort.</p>
+
+      <div class="grid grid-cols-3 gap-6">
+        <div class="flex flex-col justify-between bg-white border border-slate-200 rounded-xl p-5 shadow-sm">
+          <div>
+            <p class="font-semibold text-slate-900 mb-1">Produkt 1</p>
+            <p class="text-slate-400 text-sm">Kort beskrivelse.</p>
+          </div>
+          <button class="mt-4 w-full bg-blue-600 text-white text-sm font-semibold py-2 rounded-lg">Køb nu</button>
+        </div>
+        <div class="flex flex-col justify-between bg-white border border-slate-200 rounded-xl p-5 shadow-sm">
+          <div>
+            <p class="font-semibold text-slate-900 mb-1">Produkt 2</p>
+            <p class="text-slate-400 text-sm">Denne har meget mere tekst, som fylder mere plads — men knappen sidder stadig i bunden.</p>
+          </div>
+          <button class="mt-4 w-full bg-blue-600 text-white text-sm font-semibold py-2 rounded-lg">Køb nu</button>
+        </div>
+        <div class="flex flex-col justify-between bg-white border border-slate-200 rounded-xl p-5 shadow-sm">
+          <div>
+            <p class="font-semibold text-slate-900 mb-1">Produkt 3</p>
+            <p class="text-slate-400 text-sm">Kort tekst.</p>
+          </div>
+          <button class="mt-4 w-full bg-blue-600 text-white text-sm font-semibold py-2 rounded-lg">Køb nu</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- MODAL — id bruges til at vise/skjule fra JS -->
+  <div id="modal" class="hidden fixed inset-0 bg-black/50 z-50 flex items-center justify-center px-4">
+    <div class="bg-white rounded-2xl p-8 w-full max-w-md shadow-2xl">
+      <div class="flex justify-between items-center mb-4">
+        <h2 class="text-xl font-bold text-slate-900">Om mig</h2>
+        <!-- id bruges til at lukke modal -->
+        <button id="modal-luk" class="text-slate-400 hover:text-slate-600 text-2xl leading-none">&times;</button>
+      </div>
+      <p class="text-slate-600 text-sm leading-relaxed">Jeg bygger hjemmesider med HTML, Tailwind og JavaScript. Kontakt mig gerne!</p>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
